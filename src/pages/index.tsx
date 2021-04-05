@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Header from '../components/UI/Header';
 
 export default function Home() {
   return (
@@ -11,7 +12,7 @@ export default function Home() {
           content="Sneakers application for the Trustly Frontend Challenge"
         />
       </Head>
-
+      <Header title={'Sneakers'} previous={true} />
       <main>
         <h1>Hello world.</h1>
       </main>
