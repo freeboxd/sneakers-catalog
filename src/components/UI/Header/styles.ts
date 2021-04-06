@@ -12,6 +12,10 @@ export const HeaderElement = styled.header`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media all and (max-width: 769px) {
+    background-color: transparent;
+  }
 `;
 
 export const Container = styled.div`
@@ -19,8 +23,8 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 90%;
+
   @media all and (max-width: 769px) {
-    background-color: transparent;
     ${Title} {
       display: none;
     }
@@ -37,9 +41,11 @@ export const BackButton = styled.button`
   font-size: 1.9rem;
   display: flex;
   align-items: center;
+
   :hover {
     background-color: rgba(0, 0, 0, 0.1);
   }
+
   & svg {
     height: 3.1rem;
   }
