@@ -4,8 +4,8 @@ import {ArrowLeftShort} from '@styled-icons/bootstrap/ArrowLeftShort';
 
 import {
   HeaderElement,
-  HeaderContainer,
-  HeaderTitle,
+  Container,
+  Title,
   BackButton
 } from './styles';
 
@@ -14,10 +14,10 @@ interface HeaderProps {
   previous?: any;
 }
 
-const Header: React.FC<HeaderProps> = ({ title, previous }: HeaderProps) => {
+const Header: React.FC<HeaderProps> = ({ title, previous}: HeaderProps) => {
   return (
     <HeaderElement id="main-header">
-      <HeaderContainer>
+      <Container>
         <div>
           {previous && (
             <BackButton>
@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({ title, previous }: HeaderProps) => {
             </BackButton>
           )}
         </div>
-        <HeaderTitle>{title}</HeaderTitle>
+        <Title>{title}</Title>
         <div>
           <Image
             alt="User profile image"
@@ -35,7 +35,7 @@ const Header: React.FC<HeaderProps> = ({ title, previous }: HeaderProps) => {
             height={36}
           />
         </div>
-      </HeaderContainer>
+      </Container>
     </HeaderElement>
   );
 };

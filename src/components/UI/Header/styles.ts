@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const HeaderTitle = styled.h2`
+export const Title = styled.h2`
   font-weight: 400;
   font-size: 26px;
   font-family: Arial;
@@ -14,14 +14,14 @@ export const HeaderElement = styled.header`
   align-items: center;
 `;
 
-export const HeaderContainer = styled.div`
+export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 90%;
   @media all and (max-width: 769px) {
     background-color: transparent;
-    ${HeaderTitle} {
+    ${Title} {
       display: none;
     }
   }
