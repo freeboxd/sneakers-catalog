@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
   input,
   button,
   textarea {
-    font: 500 1.6rem Open-Sans, Helvetica, Sans-Serif;
+    font: 500 1.6rem "Open Sans", Helvetica, Sans-Serif;
   }
 
   .container {
