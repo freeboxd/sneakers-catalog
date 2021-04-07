@@ -1,11 +1,11 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import Head from 'next/head';
-import Header from '../components/UI/Header';
 import Input from '../components/UI/Input';
 import { Search } from '@styled-icons/bootstrap/Search';
 import SneakerListItem from '../components/SneakerListItem';
 import axios from 'axios';
-import { Sneaker } from '../@types/index';
+
+import { ISneaker } from '../@types/cart/Cart';
 
 import {
   MainContainer,
@@ -15,8 +15,8 @@ import {
 } from './styles';
 
 export default function Home() {
-  const [sneakersOriginalList, setSneakersOriginalList] = useState<Sneaker[]>([]);
-  const [sneakersList, setSneakersList] = useState<Sneaker[]>([]);
+  const [sneakersOriginalList, setSneakersOriginalList] = useState<ISneaker[]>([]);
+  const [sneakersList, setSneakersList] = useState<ISneaker[]>([]);
   const [searchValue, setSearchValue] = useState<String>('');
 
   const getSneakers = async () => {
@@ -59,16 +59,7 @@ export default function Home() {
     <>
       <Head>
         <title>Catalog - Trustly Frontend Challenge</title>
-        <link rel="icon" href="/favicon.ico" />
-        <meta
-          name="description"
-          content="Sneakers application for the Trustly Frontend Challenge"
-        />
       </Head>
-      <Header
-        title="Sneaker"
-        previous={true}
-      />
       <main>
         <MainContainer>
           <Input
@@ -81,7 +72,7 @@ export default function Home() {
           <ProductList>
               {sneakersList.length > 0 ? (
                 <ProductListContainer>
-                  {sneakersList.map((sneaker: Sneaker) => (
+                  {sneakersList.map((sneaker: ISneaker) => (
                     <SneakerListItem
                       sneaker={sneaker}
                       key={sneaker.id}
