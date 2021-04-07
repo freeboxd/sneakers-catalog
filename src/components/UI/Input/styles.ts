@@ -17,6 +17,7 @@ export const Container = styled.div<ContainerProps>`
   & svg {
     width: 22px;
     height: 22px;
+    position: absolute;
   }
 
   ${props =>
@@ -48,6 +49,7 @@ export const InputElement = styled.input`
   border: 0;
   color: ${props => props.theme.color.primaryText};
   text-align: center;
+  outline: 0;
 
   &::placeholder {
     text-align: center;
