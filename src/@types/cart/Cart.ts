@@ -1,4 +1,4 @@
-interface IProduct {
+export interface IProduct {
   id: string;
   price: string;
   maxresURL: string;
@@ -7,31 +7,30 @@ interface IProduct {
   currency: string;
 }
 
-interface ISneaker extends IProduct {
+export interface ISneaker extends IProduct {
   color: string;
 }
 
-interface ICartContext {
+export interface ICartContext {
   addItem(cartItem: IAddItemArgs): number;
   removeItem(cartItemId: number): ICartItem;
   clear(): void;
   cart: ICartItem[];
 }
 
-interface IAddItemArgs {
+export interface IAddItemArgs {
   product: IProduct,
   quantity: number,
   extraInfo: ICartItemExtraInfo,
 }
 
-interface ICartItem {
+export interface ICartItem {
   id: number,
   product: IProduct,
   quantity: number,
   extraInfo?: ICartItemExtraInfo,
 }
 
-interface ICartItemExtraInfo {
+export interface ICartItemExtraInfo {
   size?: number,
 }
-
