@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@styled-icons/bootstrap": "^10.29.0",
+    "@types/styled-components": "^5.1.9",
     "axios": "^0.21.1",
     "formik": "^2.2.6",
     "next": "10.1.3",
