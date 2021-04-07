@@ -1,9 +1,11 @@
 import React, { useCallback } from 'react';
-import CardWithImage, {CardWithImageProps} from '../UI/CardWithImage';
+import CardWithImage from '../UI/CardWithImage';
 import Select from '../UI/Select';
 import { useFormik } from 'formik';
-import { Sneaker } from '../../@types';
 import Button from '../UI/Button';
+import { useRouter } from 'next/router';
+
+import { ICartContext, ISneaker } from '../../@types/cart/Cart';
 
 import {
   SneakerOptionsContainer,
@@ -11,12 +13,17 @@ import {
   Form,
   SelectContainer,
 } from './styles';
+import useCart from '../../hooks/cart';
 
 interface SneakerListItem {
-  sneaker: Sneaker
+  sneaker: ISneaker
 }
 
 const SneakerListItem: React.FC<SneakerListItem> = ({sneaker}: SneakerListItem) => {
+
+  const router = useRouter();
+
+  const cartContext: ICartContext = useCart();
 
   const formik = useFormik({
     enableReinitialize: true,
@@ -27,8 +34,17 @@ const SneakerListItem: React.FC<SneakerListItem> = ({sneaker}: SneakerListItem) 
     },
 
     onSubmit: async (values) => {
-      // TODO
-      console.log(values);
+      // Add new cartItem to the cart
+      cartContext.addItem({
+        product: sneaker,
+        quantity: values.quantity,
+        extraInfo: {
+          size: values.size,
+        }
+      });
+
+      // Navigate to the next page
+      router.push('/checkout');
     },
   });
 
@@ -60,7 +76,6 @@ const SneakerListItem: React.FC<SneakerListItem> = ({sneaker}: SneakerListItem) 
     >
       <Form onSubmit={formik.handleSubmit}>
         <SneakerOptionsContainer>
-          
           <SelectContainer>
             <label>Size</label>
             <Select
