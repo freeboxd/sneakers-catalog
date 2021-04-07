@@ -41,6 +41,7 @@ export const BackButton = styled.button`
   font-size: 1.9rem;
   display: flex;
   align-items: center;
+  outline: 0;
 
   :hover {
     background-color: rgba(0, 0, 0, 0.1);
