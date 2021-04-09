@@ -10,20 +10,18 @@ import {
 } from './styles';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  title: string;
+  title: string,
   isLoading?: boolean,
-  disabled?: boolean,
 }
 
 const Button: React.FC<ButtonProps> = ({
   title,
   isLoading,
-  disabled,
   ...rest
-}) => {
+}: ButtonProps) => {
+
   return (
     <ButtonElement
-      readonly={disabled}
       {...rest}
     >
       <IconContainer>
