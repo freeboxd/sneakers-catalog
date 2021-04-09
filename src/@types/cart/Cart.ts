@@ -1,3 +1,5 @@
+import { IPaymentMethod } from "../payment/Payment";
+
 export interface IProduct {
   id: string;
   price: string;
@@ -15,6 +17,8 @@ export interface ICartContext {
   addItem(cartItem: IAddItemArgs): number;
   removeItem(cartItemId: number): ICartItem;
   clear(): void;
+  changeSelectedPaymentMethod(payment: IPaymentMethod): void;
+  selectedPaymentMethod: IPaymentMethod;
   cart: ICartItem[];
 }
 

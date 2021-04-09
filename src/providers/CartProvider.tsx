@@ -1,10 +1,13 @@
 import React, { createContext, useState } from 'react';
+import { ICartItem, ICartContext, IAddItemArgs } from '../@types/cart/Cart';
+import { IPaymentMethod } from '../@types/payment/Payment';
 
 export const CartContext = createContext<ICartContext>({} as ICartContext);
 
 export const CartProvider: React.FC = ({ children }) => {
   // State storing the cart items
   const [cart, setCart] = useState<ICartItem[]>([] as ICartItem[]);
+  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<IPaymentMethod>(null);
 
   // Adds a new item to the cart
   const addItem = ({ product, quantity, extraInfo }: IAddItemArgs) => {
@@ -39,13 +42,19 @@ export const CartProvider: React.FC = ({ children }) => {
     return cartItemToDelete;
   };
 
+  // Clears cart items
   const clear = () => {
     setCart([]);
   };
 
+  // Sets a new payment method
+  const changeSelectedPaymentMethod = (paymentMethod: IPaymentMethod) => {
+    setSelectedPaymentMethod(paymentMethod);
+  }
+
   return (
     <CartContext.Provider
-      value={{ addItem, removeItem, cart, clear }}
+      value={{ addItem, removeItem, cart, clear, changeSelectedPaymentMethod, selectedPaymentMethod }}
     >
       {children}
     </CartContext.Provider>
