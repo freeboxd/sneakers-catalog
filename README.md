@@ -50,6 +50,8 @@ This project was developed as a challenge proposed by Trustly and it should test
 * [Next.js](https://nextjs.org/)
 * [Styled Components](https://styled-components.com/)
 * [Typescript](https://www.typescriptlang.org/)
+* [Eslint](https://eslint.org/)
+* [Eslint](https://prettier.io/)
 
 
 
@@ -82,6 +84,8 @@ To run this project, you will need Node.js and Yarn installed. Node v12.13.0 is 
 ## Development
 
 To start the development server, open the project in the terminal and run `yarn dev`. You will be able to access it at `http://localhost:3000` if the 3000 port is not already being used by your machine.
+
+Another useful command is `yarn lint`, for checking lint errors with Eslint.
 
 _For more information, please refer to the [Next.js Documentation](https://nextjs.org/docs/)_
 
