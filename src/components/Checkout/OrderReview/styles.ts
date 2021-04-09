@@ -72,7 +72,7 @@ export const OrderDetails = styled.div`
   margin-bottom: 1.5rem;
   padding-left: 3rem;
 
-  @media (min-width: 769px) {
+  @media all and (min-width: 769px) {
     width: 100%;
     padding: 0;
     display: flex;
@@ -118,7 +118,7 @@ export const TotalCostPrice = styled.span`
 
 export const DisplayFlex = styled.span`
   width: 100%;
-  @media (min-width: 769px) {
+  @media all and (min-width: 769px) {
     display: flex;
   }
 `;
@@ -134,7 +134,7 @@ export const WrapperCardBody = styled.div`
     min-height: 13rem;
   }
 
-  @media (min-width: 769px) {
+  @media all and (min-width: 769px) {
     padding: 0;
     background-color: transparent;
   }
@@ -190,7 +190,7 @@ export const WrapperCardContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (min-width: 769px) {
+  @media all and (min-width: 769px) {
     width: 50%;
     padding: 0;
   }

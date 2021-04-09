@@ -11,7 +11,7 @@ const SmallImg = styled.div<ImgProps>`
   width: 30%;
   margin-bottom: 5.8rem;
 
-  @media (min-width: 769px) {
+  @media all and (min-width: 769px) {
     display: none;
   }
 `;

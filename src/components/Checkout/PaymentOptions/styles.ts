@@ -63,7 +63,7 @@ export const DeliveryDetailsContainer = styled.div`
   width: 50%;
   margin-top: 1.6rem;
 
-  @media (min-width: 769px) {
+  @media all and (min-width: 769px) {
     width: 45%;
     margin: 0;
   }
@@ -77,7 +77,7 @@ export const DeliveryDetailsContent = styled.p`
   color: #A5A5A5;
   font-size: 1.4rem;
 
-  @media (min-width: 769px) {
+  @media all and (min-width: 769px) {
     font-size: 1.5rem;
   }
 `;
@@ -87,7 +87,7 @@ export const OrderDetails = styled.div`
   margin-bottom: 1.5rem;
   padding-left: 3rem;
 
-  @media (min-width: 769px) {
+  @media all and (min-width: 769px) {
     width: 100%;
     padding: 0;
     display: flex;
@@ -106,7 +106,7 @@ export const CostContainer = styled.span`
   width: 100%;
   justify-content: space-between;
 
-  @media (min-width: 769px) {
+  @media all and (min-width: 769px) {
     width: 45%;
   }
 `;
@@ -131,7 +131,7 @@ export const TotalCostPrice = styled.span`
 
 export const DisplayFlex = styled.span`
   width: 100%;
-  @media (min-width: 769px) {
+  @media all and (min-width: 769px) {
     display: flex;
   }
 `;
@@ -144,7 +144,7 @@ export const WrapperCardContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
-  @media (min-width: 769px) {
+  @media all and (min-width: 769px) {
     padding: 0;
     background-color: transparent;
   }
