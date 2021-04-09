@@ -21,8 +21,8 @@ const Select: React.FC<SelectProps> = ({
   const inputRef = useRef<HTMLSelectElement>(null);
 
   return (
-    <Container error={!!error} disabled={disabled}>
-      <SelectElement ref={inputRef} {...rest}>
+    <Container>
+      <SelectElement error={!!error} disabled={disabled} ref={inputRef} {...rest}>
         {options}{' '}
       </SelectElement>
     </Container>
