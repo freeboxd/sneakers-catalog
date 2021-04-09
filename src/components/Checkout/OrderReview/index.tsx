@@ -123,7 +123,7 @@ const OrderReview: React.FC<OrderReviewProps> = ({
 
             <ContinueButtonContainer>
               <Button
-                title='Continue'
+                title='Place order'
                 // onClick={() => handleClickContinue()}
                 type="button"
               />
