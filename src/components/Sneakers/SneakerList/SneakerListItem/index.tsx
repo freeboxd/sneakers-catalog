@@ -4,7 +4,7 @@ import Select from '../../../UI/Select';
 import { useFormik } from 'formik';
 import Button from '../../../UI/Button';
 import { useRouter } from 'next/router';
-import { ICartContext, ISneaker } from '../../../../@types/cart/Cart';
+import { ICartContext, ISneaker } from '../../../../@types/cart';
 
 import {
   SneakerOptionsContainer,

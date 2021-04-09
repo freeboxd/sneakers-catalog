@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
 import useCart from '../../hooks/cart';
-import { ICartContext, ICartItem } from '../../@types/cart/Cart';
+import { ICartContext, ICartItem } from '../../@types/cart';
 import PaymentOptions from '../../components/Checkout/PaymentOptions';
 import OrderReview from '../../components/Checkout/OrderReview';
 import { useEffect } from 'react';

@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import Head from 'next/head';
 import { InferGetStaticPropsType } from 'next';
-import { ISneaker } from '../@types/cart/Cart';
+import { ISneaker } from '../@types/cart';
 import Sneakers from '../components/Sneakers';
 
 export const getStaticProps = async () => {

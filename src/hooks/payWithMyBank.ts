@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ICartItem } from '../@types/cart/Cart';
+import { ICartItem } from '../@types/cart';
 import useScript from './useScript';
 
 const usePayWithMyBank = (successCallback: () => void, failureCallback: () => void) => {

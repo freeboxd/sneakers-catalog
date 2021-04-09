@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react';
-import { ICartItem, ICartContext, IAddItemArgs } from '../@types/cart/Cart';
-import { IPaymentMethod } from '../@types/payment/Payment';
+import { ICartItem, ICartContext, IAddItemArgs } from '../@types/cart';
+import { IPaymentMethod } from '../@types/payment';
 
 export const CartContext = createContext<ICartContext>({} as ICartContext);
 

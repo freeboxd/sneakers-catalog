@@ -1,5 +1,5 @@
 import React from 'react';
-import { ISneaker } from '../../@types/cart/Cart';
+import { ISneaker } from '../../@types/cart';
 import SneakerList from './SneakerList';
 import Input from '../UI/Input';
 import {Search} from '@styled-icons/bootstrap/Search'

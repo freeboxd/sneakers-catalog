@@ -1,5 +1,5 @@
 import React from 'react';
-import { ICartItem, ISneaker } from '../../../@types/cart/Cart';
+import { ICartItem, ISneaker } from '../../../@types/cart';
 import Button from '../../UI/Button';
 import MaxResImg from '../UI/MaxResImg';
 import SmallImg from '../UI/SmallImg';
