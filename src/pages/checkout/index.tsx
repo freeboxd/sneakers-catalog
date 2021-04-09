@@ -57,7 +57,7 @@ const Checkout: React.FC = () => {
   // Goes to the next step of the checkout if possible
   const nextStep = () => {
     if (currentStepId < checkoutSteps.length + 1) {
-      setCurrentStepId(checkoutSteps.findIndex((step) => step.position === currentStepId + 1));
+      setCurrentStepId(checkoutSteps.findIndex((step) => step.position === currentStepId + 1) + 1);
     }
   }
 
