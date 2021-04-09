@@ -5,7 +5,7 @@ import { ISneaker } from '../@types/cart';
 import Sneakers from '../components/Sneakers';
 
 export const getStaticProps = async () => {
-  const res = await fetch(process.env.API_HOST + '/sneakers')
+  const res = await fetch(process.env.SNEAKERS_API_URL)
   const sneakerList: ISneaker[] = (await res.json()).results;
 
   return {
