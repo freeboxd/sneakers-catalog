@@ -2,57 +2,46 @@ import React, { useEffect, useCallback, useState } from 'react';
 import Head from 'next/head';
 import Input from '../components/UI/Input';
 import { Search } from '@styled-icons/bootstrap/Search';
-import SneakerListItem from '../components/SneakerListItem';
-import axios from 'axios';
-
+import SneakerList from '../components/SneakerList';
+import { InferGetStaticPropsType } from 'next';
 import { ISneaker } from '../@types/cart/Cart';
 
 import {
   MainContainer,
-  ProductList,
-  ProductListContainer,
   NotFoundMessage,
 } from './styles';
 
-export default function Home() {
-  const [sneakersOriginalList, setSneakersOriginalList] = useState<ISneaker[]>([]);
-  const [sneakersList, setSneakersList] = useState<ISneaker[]>([]);
+export const getStaticProps = async () => {
+  const res = await fetch('http://localhost:3000/api/sneakers')
+  const sneakerList: ISneaker[] = (await res.json()).results;
+
+  return {
+    props: {
+      sneakerList,
+    },
+  }
+}
+
+export default function Home({ sneakerList }: InferGetStaticPropsType<typeof getStaticProps>) {
   const [searchValue, setSearchValue] = useState<String>('');
 
-  const getSneakers = async () => {
-    const result = await axios
-      .get('/sneakers.json')
-      .then(res => res)
-      .catch(err => {
-        console.log(err.response);
-        return err.response;
-      });
-    return result;
-  };
+  const [sneakerListClone, setSneakerListClone] = useState<ISneaker[]>([]);
 
-  // Fetches the sneakers list and populates the components' arrays
-  // if successful
   useEffect(() => {
-    (async () => {
-      const res = await getSneakers();
-      if (res && res.status === 200) {
-        setSneakersOriginalList(res.data.results);
-        setSneakersList(res.data.results);
-      }
-    })();
-  }, []);
+    setSneakerListClone(sneakerList);
+  }, [sneakerList]);
 
   // Deals with the search bar filtering
   const handleSearchChange = useCallback(
     (value: string) => {
       setSearchValue(value);
-      const filteredSneakers = sneakersOriginalList.filter(sneaker =>
+      const filteredSneakers = sneakerList.filter(sneaker =>
         sneaker.description
           .toLowerCase()
           .includes(value.length > 0 ? value.toLocaleLowerCase() : ''),
       );
-      setSneakersList(filteredSneakers);
-    }, [sneakersList, sneakersOriginalList],
+      setSneakerListClone(filteredSneakers);
+    }, [sneakerList, sneakerListClone],
   );
 
   return (
@@ -68,32 +57,19 @@ export default function Home() {
             name="Search"
             icon={Search}
             placeholder="Search for your sneaker"
-            onChange={e => handleSearchChange(e.target.value)}
+            onChange={e => setSearchValue(e.target.value)}
           />
 
-          <ProductList>
-
-              {sneakersList.length > 0 ? (
-                <ProductListContainer>
-
-                  {sneakersList.map((sneaker: ISneaker) => (
-                  
-                    <SneakerListItem
-                      sneaker={sneaker}
-                      key={sneaker.id}
-                    />
-                  
-                  ))}
-
-                </ProductListContainer>
-                ) : (
-                  <NotFoundMessage>
-                    There are no sneakers that match {searchValue}.
-                  </NotFoundMessage>
-                )
+          <SneakerList
+            sneakerList={sneakerListClone}
+          >
+            <NotFoundMessage>
+              {
+                searchValue !== '' ? <>There are no sneakers that match {searchValue}.</>
+                : <>There are no sneakers to show.</>
               }
-
-          </ProductList>
+            </NotFoundMessage>
+          </SneakerList>
 
         </MainContainer>
       </main>
