@@ -2,7 +2,6 @@ import GlobalStyle from './../styles/global';
 import { ThemeProvider } from 'styled-components';
 import theme from '../styles/theme';
 import Head from 'next/head';
-import Header from '../components/UI/Header';
 
 // Context
 import { CartProvider } from '../providers/CartProvider';
@@ -24,10 +23,6 @@ function App({ Component, pageProps }) {
         </Head>
         <GlobalStyle />
           <CartProvider>
-            <Header
-              title="Checkout"
-              previous={true}
-            />
             <Component {...pageProps} />
           </CartProvider>
       </ThemeProvider>

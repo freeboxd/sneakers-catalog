@@ -7,6 +7,7 @@ import OrderReview from '../../components/Checkout/OrderReview';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import CheckoutComponent from '../../components/Checkout';
+import Header from '../../components/UI/Header';
 
 import { useCallback } from 'react';
 import { Step } from '../../components/UI/StepBar';
@@ -61,11 +62,28 @@ const Checkout: React.FC = () => {
     }
   }
 
+  const handleClickBackButton = () => {
+    const previousStep = checkoutSteps.find(step => step.position === currentStepId);
+
+    if (currentStepId > 0 && previousStep.component !== null) {
+      setCurrentStepId(currentStepId - 1);
+    } else {
+      router.back();
+    }
+  }
+
   return (
     <>
       <Head>
         <title>{currentStep.pageTitle} - Trustly Frontend Challenge</title>
       </Head>
+      
+      <Header
+        title={currentStep.pageTitle}
+        previous={true}
+        onClickBackButton={() => handleClickBackButton()}
+      />
+
       {
         // Fallback for the no selected cart item situation
         (selectedCartItem === undefined || selectedCartItem.product === undefined)

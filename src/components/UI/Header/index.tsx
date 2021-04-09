@@ -12,15 +12,20 @@ import {
 interface HeaderProps {
   title: string;
   previous?: any;
+  onClickBackButton?: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ title, previous }: HeaderProps) => {
+const Header: React.FC<HeaderProps> = ({
+  title,
+  previous,
+  onClickBackButton,
+}: HeaderProps) => {
   return (
     <HeaderElement id="main-header">
       <Container>
         <BackButtonContainer>
           {previous && (
-            <BackButton>
+            <BackButton onClick={() => onClickBackButton()}>
               <ArrowLeftShort />
               Back
             </BackButton>

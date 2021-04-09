@@ -3,6 +3,7 @@ import Head from 'next/head';
 import { InferGetStaticPropsType } from 'next';
 import { ISneaker } from '../@types/cart';
 import Sneakers from '../components/Sneakers';
+import Header from '../components/UI/Header';
 
 export const getStaticProps = async () => {
   const res = await fetch(process.env.SNEAKERS_API_URL)
@@ -42,6 +43,11 @@ export default function Home({ sneakerList }: InferGetStaticPropsType<typeof get
       <Head>
         <title>Catalog - Trustly Frontend Challenge</title>
       </Head>
+
+      <Header
+        title="Sneakers"
+        previous={false}
+      />
 
       <main>
         <Sneakers
