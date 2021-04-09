@@ -52,21 +52,23 @@ const SneakerListItem: React.FC<SneakerListItemProps> = ({
   const sneakerQuantities = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   const sneakerSizeOptions = useCallback(
-    () => sneakerSizes.map((size) => (
-      <option key={size} value={size}>
-        {size}
-      </option>
-    )),
-    [],
+    () =>
+      sneakerSizes.map((size) => (
+        <option key={size} value={size}>
+          {size}
+        </option>
+      )),
+    []
   );
 
   const sneakerQuantitiesOptions = useCallback(
-    () => sneakerQuantities.map((quantity) => (
-      <option key={quantity} value={quantity}>
-        {quantity}
-      </option>
-    )),
-    [],
+    () =>
+      sneakerQuantities.map((quantity) => (
+        <option key={quantity} value={quantity}>
+          {quantity}
+        </option>
+      )),
+    []
   );
 
   return (

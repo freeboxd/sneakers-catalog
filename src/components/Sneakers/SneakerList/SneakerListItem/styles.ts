@@ -18,13 +18,14 @@ export const ProductPrice = styled.span`
 `;
 
 export const SelectContainer = styled.div`
-  display: flex;
-  align-items: center;
-
   & label {
+    display: flex;
+    align-items: center;
     color: #8D8D8D;
     font-size: 1.4rem;
     font-weight: 300;
-    margin-right: 1rem;
+    & span {
+      margin-right: 1rem;
+    }
   }
 `;
