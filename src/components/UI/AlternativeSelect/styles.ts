@@ -17,7 +17,7 @@ export const Option = styled.button<OptionProps>`
   justify-content: space-between;
   position: relative;
   padding: 2rem;
-  height: 6rem;
+  height: 6.5rem;
   border-radius: 9px;
   outline: 0;
   border: none;

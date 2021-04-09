@@ -13,7 +13,7 @@ const MaxResImg = styled.div<ImgProps>`
   min-height: 574px;
   
   @media all and (min-width: 769px) {
-    width: 33%;
+    width: 43%;
   }
 
   @media all and (max-width: 769px) {

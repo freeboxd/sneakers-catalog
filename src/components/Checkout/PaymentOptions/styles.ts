@@ -13,7 +13,7 @@ export const DetailBody = styled.div`
 export const WrapperCard = styled.div`
   width: 100%;
   @media all and (min-width: 769px) {
-    width: 67%;
+    width: 57%;
     padding: 2rem 3rem;
     border-radius: 9px;
     background-color: #F7F7F7;

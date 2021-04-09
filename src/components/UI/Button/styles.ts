@@ -9,7 +9,7 @@ export const ButtonElement = styled.button`
   justify-content: center;
   align-items: center;
   flex: 1;
-  padding: 1.2rem 0;
+  padding: 1.3rem 0;
   font-weight: 700;
   color: #fff;
   font-size: 1.6rem;
@@ -23,6 +23,10 @@ export const ButtonElement = styled.button`
 
   &:active {
     background-color: #7c9277;
+  }
+
+  @media all and (min-width: 769px) {
+    padding: 1.2rem 0;
   }
 `;
 
