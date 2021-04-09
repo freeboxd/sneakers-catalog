@@ -45,7 +45,7 @@ export default function Home({ sneakerList }: InferGetStaticPropsType<typeof get
 
       <main>
         <Sneakers
-          sneakerList={sneakerList}
+          sneakerList={sneakerListClone}
           searchValue={searchValue}
           onChangeSearchValue={(searchValue) => handleSearchChange(searchValue)}
         />
