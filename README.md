@@ -42,7 +42,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[Trustly App Name Screen Shot][product-screenshot]
+![Trustly App Name Screen Shot][product-screenshot]
 
 This project was developed as a challenge proposed by Trustly and it should test my skills as a Frontend Developer.
 
