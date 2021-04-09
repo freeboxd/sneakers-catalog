@@ -1,9 +1,5 @@
 import styled from 'styled-components';
 
-interface ImgProps {
-  src: string,
-}
-
 export const MainContainer = styled.div`
   display: flex;
   justify-content: center;

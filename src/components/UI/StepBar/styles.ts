@@ -53,14 +53,13 @@ export const StepBlockCircle = styled.div<StepBlockCircleProps>`
   position: relative;
   z-index: 20;
   border-radius: 50%;
-  ${props =>
-    props.isActive ?
-    css`
+  ${(props) => (props.isActive
+    ? css`
       background-color: #61CB46;
     `
     : css`
       background-color: #E8E8E8;
-    `}
+    `)}
 `;
 
 export const StepBlockTitle = styled.span<StepBlockTitleProps>`
@@ -68,9 +67,8 @@ export const StepBlockTitle = styled.span<StepBlockTitleProps>`
   font-size: 1.75rem;
   cursor: default;
 
-  ${props =>
-    !props.isActive &&
-    css`
+  ${(props) => !props.isActive
+    && css`
       color: #BEBEBE;
     `}
 `;

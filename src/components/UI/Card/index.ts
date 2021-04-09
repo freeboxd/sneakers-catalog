@@ -5,7 +5,7 @@ export const Card = styled.div`
   border-radius: 8px;
 `;
 
-export const CardBody = styled.div `
+export const CardBody = styled.div`
   padding: 2.1rem;
   display: flex;
   flex-direction: column;

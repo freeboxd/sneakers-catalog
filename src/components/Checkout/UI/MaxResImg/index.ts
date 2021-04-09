@@ -5,7 +5,7 @@ interface ImgProps {
 }
 
 const MaxResImg = styled.div<ImgProps>`
-  background: url(${props => props.src}) no-repeat center center;
+  background: url(${(props) => props.src}) no-repeat center center;
   background-size: auto 120%;
   border-radius: 9px;
   width: 100%;

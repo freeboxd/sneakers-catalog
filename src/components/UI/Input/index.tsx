@@ -18,11 +18,10 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const Input: React.FC<InputProps> = ({
-  icon: StyledIcon,
+  icon: StyledIconComponent,
   error,
   ...rest
 }: InputProps) => {
-
   const inputRef = useRef<HTMLInputElement>(null);
 
   const [isFocused, setIsFocused] = useState(false);
@@ -43,7 +42,7 @@ const Input: React.FC<InputProps> = ({
       isFilled={isFilled}
       isFocused={isFocused}
     >
-      {StyledIcon && <StyledIcon />}
+      {StyledIconComponent && <StyledIconComponent />}
       <InputElement
         onFocus={handleInputFocus}
         onBlur={handleInputBlur}

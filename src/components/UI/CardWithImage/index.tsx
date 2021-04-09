@@ -21,20 +21,18 @@ const CardWithImage: React.FC<CardWithImageProps> = ({
   imgSrc,
   title,
   children,
-}: CardWithImageProps) => {
-  return(
-    <Card>
-      <Container>
-        <CardImgContainer>
-          <CardImg src={imgSrc} />
-        </CardImgContainer>
-        <CardBody>
-          <CardTitle>{title}</CardTitle>
-          {children}
-        </CardBody>
+}: CardWithImageProps) => (
+  <Card>
+    <Container>
+      <CardImgContainer>
+        <CardImg src={imgSrc} />
+      </CardImgContainer>
+      <CardBody>
+        <CardTitle>{title}</CardTitle>
+        {children}
+      </CardBody>
     </Container>
-    </Card>
-  );
-};
+  </Card>
+);
 
 export default CardWithImage;

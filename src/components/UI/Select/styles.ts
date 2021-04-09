@@ -3,7 +3,7 @@ import styled from 'styled-components';
 type SelectProps = {
   error?: boolean,
   disabled?: boolean,
-}
+};
 
 export const Container = styled.div`
   display: flex;

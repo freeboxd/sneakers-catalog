@@ -1,17 +1,15 @@
-import React, { useCallback } from 'react';
-import { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
+
+import { BuildingBank } from '@styled-icons/fluentui-system-filled/BuildingBank';
+import { CreditCard } from '@styled-icons/bootstrap/CreditCard';
+import { CcApplePay } from '@styled-icons/fa-brands/CcApplePay';
 import { IPaymentMethod } from '../../../../@types/payment';
 import useCart from '../../../../hooks/cart';
-import AlternativeSelect, {IAlternativeSelectOption} from '../../../UI/AlternativeSelect';
-import {BuildingBank} from '@styled-icons/fluentui-system-filled/BuildingBank';
-import {CreditCard} from '@styled-icons/bootstrap/CreditCard';
-import {CcApplePay} from '@styled-icons/fa-brands/CcApplePay';
+import AlternativeSelect, {
+  IAlternativeSelectOption,
+} from '../../../UI/AlternativeSelect';
 
-import {
-  Container,
-  HeaderTitle,
-  PaymentMethodsContainer,
-} from './styles';
+import { Container, HeaderTitle, PaymentMethodsContainer } from './styles';
 
 const PaymentOptionsSelect: React.FC = () => {
   const { changeSelectedPaymentMethod } = useCart();
@@ -41,31 +39,36 @@ const PaymentOptionsSelect: React.FC = () => {
   useEffect(() => {
     changeSelectedPaymentMethod(paymentMethods[0]);
   }, []);
-  
-  const mapAllPaymentMethodsToAlternativeSelectOption = useCallback(
-    () => {
-      const options = paymentMethods
-        .map(({ name, id, iconSrc, badge }) => {
-          const alternativeSelectOption: IAlternativeSelectOption = { title: name, id, iconSrc };
 
-          if (badge) {
-            alternativeSelectOption.badge = badge;
-          }
+  const mapAllPaymentMethodsToAlternativeSelectOption = useCallback(() => {
+    const options = paymentMethods.map(({
+      name, id, iconSrc, badge,
+    }) => {
+      const alternativeSelectOption: IAlternativeSelectOption = {
+        title: name,
+        id,
+        iconSrc,
+      };
 
-          return alternativeSelectOption;
-        });
+      if (badge) {
+        alternativeSelectOption.badge = badge;
+      }
 
-        return options;
+      return alternativeSelectOption;
+    });
 
-    }, [paymentMethods],
-  );
+    return options;
+  }, [paymentMethods]);
 
   const handleChangePaymentMethod = useCallback(
     (option: IAlternativeSelectOption) => {
-      const paymentMethod: IPaymentMethod = paymentMethods.find((pm) => pm.id === option.id);
+      const paymentMethod: IPaymentMethod = paymentMethods.find(
+        (pm) => pm.id === option.id,
+      );
 
       changeSelectedPaymentMethod(paymentMethod);
-    }, [],
+    },
+    [],
   );
 
   return (
@@ -81,6 +84,6 @@ const PaymentOptionsSelect: React.FC = () => {
       </PaymentMethodsContainer>
     </Container>
   );
-}
+};
 
 export default PaymentOptionsSelect;

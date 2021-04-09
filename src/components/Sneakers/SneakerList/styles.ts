@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {Card} from '../../UI/Card';
+import { Card } from '../../UI/Card';
 
 export const ProductList = styled.div`
   width: 100%;

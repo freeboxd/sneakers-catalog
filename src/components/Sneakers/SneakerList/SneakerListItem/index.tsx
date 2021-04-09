@@ -1,9 +1,9 @@
 import React, { useCallback } from 'react';
+import { useFormik } from 'formik';
+import { useRouter } from 'next/router';
 import CardWithImage from '../../../UI/CardWithImage';
 import Select from '../../../UI/Select';
-import { useFormik } from 'formik';
 import Button from '../../../UI/Button';
-import { useRouter } from 'next/router';
 import { ICartContext, ISneaker } from '../../../../@types/cart';
 
 import {
@@ -15,11 +15,12 @@ import {
 import useCart from '../../../../hooks/cart';
 
 interface SneakerListItemProps {
-  sneaker: ISneaker
+  sneaker: ISneaker;
 }
 
-const SneakerListItem: React.FC<SneakerListItemProps> = ({sneaker}: SneakerListItemProps) => {
-
+const SneakerListItem: React.FC<SneakerListItemProps> = ({
+  sneaker,
+}: SneakerListItemProps) => {
   const router = useRouter();
 
   const cartContext: ICartContext = useCart();
@@ -39,7 +40,7 @@ const SneakerListItem: React.FC<SneakerListItemProps> = ({sneaker}: SneakerListI
         quantity: values.quantity,
         extraInfo: {
           size: values.size,
-        }
+        },
       });
 
       // Navigate to the next page
@@ -51,62 +52,61 @@ const SneakerListItem: React.FC<SneakerListItemProps> = ({sneaker}: SneakerListI
   const sneakerQuantities = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   const sneakerSizeOptions = useCallback(
-    () => sneakerSizes.map(size => (
-        <option key={size} value={size}>
-          {size}
-        </option>
-      )),
+    () => sneakerSizes.map((size) => (
+      <option key={size} value={size}>
+        {size}
+      </option>
+    )),
     [],
   );
 
   const sneakerQuantitiesOptions = useCallback(
-    () => sneakerQuantities.map(quantity => (
-        <option key={quantity} value={quantity}>
-          {quantity}
-        </option>
-      )),
+    () => sneakerQuantities.map((quantity) => (
+      <option key={quantity} value={quantity}>
+        {quantity}
+      </option>
+    )),
     [],
   );
 
   return (
-    <CardWithImage
-      title={sneaker.description}
-      imgSrc={sneaker.thumbnailURL}
-    >
+    <CardWithImage title={sneaker.description} imgSrc={sneaker.thumbnailURL}>
       <Form onSubmit={formik.handleSubmit}>
         <SneakerOptionsContainer>
           <SelectContainer>
-            <label>Size</label>
-            <Select
-              name="size"
-              label='Size'
-              value={formik.values.size}
-              options={sneakerSizeOptions()}
-              onChange={formik.handleChange}
-            />
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label htmlFor={`${sneaker.id}-size`}>
+              <span>Size</span>
+              <Select
+                id={`${sneaker.id}-size`}
+                name="size"
+                value={formik.values.size}
+                options={sneakerSizeOptions()}
+                onChange={formik.handleChange}
+              />
+            </label>
           </SelectContainer>
 
           <SelectContainer>
-            <label>Quantity</label>
-            <Select
-              name="quantity"
-              label='Quantity'
-              value={formik.values.quantity}
-              options={sneakerQuantitiesOptions()}
-              onChange={formik.handleChange}
-            />
+            {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+            <label htmlFor={`${sneaker.id}-quantity`}>
+              <span>Quantity</span>
+              <Select
+                name="quantity"
+                id={`${sneaker.id}-quantity`}
+                value={formik.values.quantity}
+                options={sneakerQuantitiesOptions()}
+                onChange={formik.handleChange}
+              />
+            </label>
           </SelectContainer>
-
         </SneakerOptionsContainer>
-        <ProductPrice>{'$ ' + sneaker.price}</ProductPrice>
+        <ProductPrice>{`$ ${sneaker.price}`}</ProductPrice>
 
-        <Button
-          title='Add to cart'
-          type='submit'
-        />
+        <Button title="Add to cart" type="submit" />
       </Form>
     </CardWithImage>
   );
-}
+};
 
 export default SneakerListItem;

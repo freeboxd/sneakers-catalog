@@ -4,10 +4,17 @@ import { IPaymentMethod } from '../@types/payment';
 
 export const CartContext = createContext<ICartContext>({} as ICartContext);
 
-export const CartProvider: React.FC = ({ children }) => {
+export const CartProvider: React.FC = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
   // State storing the cart items
   const [cart, setCart] = useState<ICartItem[]>([] as ICartItem[]);
-  const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<IPaymentMethod>(null);
+  const [
+    selectedPaymentMethod,
+    setSelectedPaymentMethod,
+  ] = useState<IPaymentMethod>(null);
 
   // Adds a new item to the cart
   const addItem = ({ product, quantity, extraInfo }: IAddItemArgs) => {
@@ -29,7 +36,7 @@ export const CartProvider: React.FC = ({ children }) => {
 
   // Removes an item from the cart by it's id
   const removeItem = (cartItemId: number) => {
-    const cartItemToDelete = cart.find((item) => item.id = cartItemId);
+    const cartItemToDelete = cart.find((item) => item.id === cartItemId);
 
     if (!cartItemToDelete) {
       throw new Error('Cart item not found.');
@@ -50,11 +57,18 @@ export const CartProvider: React.FC = ({ children }) => {
   // Sets a new payment method
   const changeSelectedPaymentMethod = (paymentMethod: IPaymentMethod) => {
     setSelectedPaymentMethod(paymentMethod);
-  }
+  };
 
   return (
     <CartContext.Provider
-      value={{ addItem, removeItem, cart, clearCart, changeSelectedPaymentMethod, selectedPaymentMethod }}
+      value={{
+        addItem,
+        removeItem,
+        cart,
+        clearCart,
+        changeSelectedPaymentMethod,
+        selectedPaymentMethod,
+      }}
     >
       {children}
     </CartContext.Provider>

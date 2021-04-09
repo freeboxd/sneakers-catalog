@@ -11,33 +11,30 @@ import {
 type SneakerListProps = {
   sneakerList: ISneaker[],
   children: React.ReactNode,
-}
+};
 
 const SneakerList: React.FC<SneakerListProps> = ({
   sneakerList,
   children,
-}: SneakerListProps) => {
-  return (
-    <ProductList>
+}: SneakerListProps) => (
+  <ProductList>
 
-      {sneakerList.length > 0 ? (
-        <ProductListContainer>
+    {sneakerList.length > 0 ? (
+      <ProductListContainer>
 
-          {sneakerList.map((sneaker: ISneaker) => (
-          
-            <SneakerListItem
-              sneaker={sneaker}
-              key={sneaker.id}
-            />
-          
-          ))}
+        {sneakerList.map((sneaker: ISneaker) => (
 
-        </ProductListContainer>
-        ) : children
-      }
+          <SneakerListItem
+            sneaker={sneaker}
+            key={sneaker.id}
+          />
 
-    </ProductList>
-  )
-};
+        ))}
+
+      </ProductListContainer>
+    ) : children}
+
+  </ProductList>
+);
 
 export default SneakerList;

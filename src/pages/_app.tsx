@@ -1,12 +1,13 @@
-import GlobalStyle from './../styles/global';
 import { ThemeProvider } from 'styled-components';
-import theme from '../styles/theme';
 import Head from 'next/head';
+import { AppProps } from 'next/app';
+import GlobalStyle from '../styles/global';
+import theme from '../styles/theme';
 
 // Context
 import { CartProvider } from '../providers/CartProvider';
 
-function App({ Component, pageProps }) {
+function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -22,9 +23,9 @@ function App({ Component, pageProps }) {
           />
         </Head>
         <GlobalStyle />
-          <CartProvider>
-            <Component {...pageProps} />
-          </CartProvider>
+        <CartProvider>
+          <Component {...pageProps} />
+        </CartProvider>
       </ThemeProvider>
     </>
   );

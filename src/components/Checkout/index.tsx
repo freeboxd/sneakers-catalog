@@ -1,5 +1,5 @@
 import React from 'react';
-import StepBar, { Step } from '../../components/UI/StepBar';
+import StepBar, { Step } from '../UI/StepBar';
 
 import {
   MainContainer,
@@ -10,25 +10,23 @@ type CheckoutProps = {
   currentStep: Step,
   checkoutSteps: Step[],
   children: React.ReactNode,
-}
+};
 
 const Checkout: React.FC<CheckoutProps> = ({
   currentStep,
   checkoutSteps,
   children,
-}: CheckoutProps) => {
-  return (
-    <MainContainer>
-      <StepBar
-        currentStep={currentStep.position}
-        steps={checkoutSteps}
-      />
-      <PageTitle>{currentStep.pageTitle}</PageTitle>
+}: CheckoutProps) => (
+  <MainContainer>
+    <StepBar
+      currentStep={currentStep.position}
+      steps={checkoutSteps}
+    />
+    <PageTitle>{currentStep.pageTitle}</PageTitle>
 
-      { children }
+    { children }
 
-    </MainContainer>
-  );
-}
+  </MainContainer>
+);
 
 export default Checkout;

@@ -31,127 +31,137 @@ import usePayWithMyBank from '../../../hooks/payWithMyBank';
 import useCart from '../../../hooks/cart';
 
 interface PaymentOptionsProps {
-  selectedCartItem: ICartItem,
-  nextStep(): void,
+  selectedCartItem: ICartItem;
+  nextStep(): void;
 }
 
 const PaymentOptions: React.FC<PaymentOptionsProps> = ({
   selectedCartItem,
   nextStep,
 }: PaymentOptionsProps) => {
-
   // Callback for when PayWithMyBank.establish runs successfully
   const handlePayWithMyBankEstablishSuccess = () => {
     nextStep();
-  }
+  };
 
   // Callback for when PayWithMyBank.establish fails
   const handlePayWithMyBankEstablishFailure = () => {
     //
-  }
+  };
 
-  const { PayWithMyBankEstablish } = usePayWithMyBank(handlePayWithMyBankEstablishSuccess, handlePayWithMyBankEstablishFailure);
+  const { PayWithMyBankEstablish } = usePayWithMyBank(
+    handlePayWithMyBankEstablishSuccess,
+    handlePayWithMyBankEstablishFailure,
+  );
   const { selectedPaymentMethod, cart } = useCart();
 
   const handleClickContinue = () => {
-
     // Opens PayWithMyBank integration when 'online-banking' is selected
     if (selectedPaymentMethod.id === 'online-banking') {
-
       PayWithMyBankEstablish(cart[0]);
-
     } else {
       nextStep();
     }
-
   };
 
   return (
     <>
       <DetailBody>
-        <MaxResImg
-          src={selectedCartItem.product.maxresURL}
-        />
+        <MaxResImg src={selectedCartItem.product.maxresURL} />
 
         <WrapperCard>
           <WrapperCardContainer>
-
-            <SmallImg
-              src={selectedCartItem.product.maxresURL}
-            />
+            <SmallImg src={selectedCartItem.product.maxresURL} />
 
             <OrderDetails>
               <InfoContainer>
                 <DisappearsBelowTablet>
                   <HeaderTitle>Cart total</HeaderTitle>
                 </DisappearsBelowTablet>
-                
-                <WrapperCardHeader>{selectedCartItem.product.description}</WrapperCardHeader>
+
+                <WrapperCardHeader>
+                  {selectedCartItem.product.description}
+                </WrapperCardHeader>
 
                 <CartItemInfo>
-                  x {selectedCartItem.quantity}
+                  x
+                  {' '}
+                  {selectedCartItem.quantity}
                   {
                     // Displays size, if exists
-                    (selectedCartItem.extraInfo && selectedCartItem.extraInfo.size) && (
-                      <>, Size {selectedCartItem.extraInfo.size}</>)
+                    selectedCartItem.extraInfo
+                      && selectedCartItem.extraInfo.size && (
+                        <>
+                          , Size
+                          {selectedCartItem.extraInfo.size}
+                        </>
+                    )
                   }
                   {
                     // Displays color, if exists
-                    (selectedCartItem.extraInfo && (selectedCartItem.product as ISneaker).color) && (
-                      <>, {(selectedCartItem.product as ISneaker).color}</>)
+                    selectedCartItem.extraInfo
+                      && (selectedCartItem.product as ISneaker).color && (
+                        <>
+                          ,
+                          {(selectedCartItem.product as ISneaker).color}
+                        </>
+                    )
                   }
-
-                  <br/>
-                  Item #{selectedCartItem.product.id}
+                  <br />
+                  Item #
+                  {selectedCartItem.product.id}
                 </CartItemInfo>
               </InfoContainer>
 
               <DeliveryDetailsContainer>
                 <DeliveryDetailsTitle>
-                  <HeaderTitle>
-                    Delivery Details
-                  </HeaderTitle>
+                  <HeaderTitle>Delivery Details</HeaderTitle>
                 </DeliveryDetailsTitle>
                 <DeliveryDetailsContent>
-                  John Smith<br/>
-                  Phone no: 01312428200<br/>
-                  Address: Redwood City, 2000.<br/>
+                  John Smith
+                  <br />
+                  Phone no: 01312428200
+                  <br />
+                  Address: Redwood City, 2000.
+                  <br />
                 </DeliveryDetailsContent>
               </DeliveryDetailsContainer>
-            
             </OrderDetails>
 
             <DisplayFlex>
-              <EmptyBlock/>
+              <EmptyBlock />
               <CostContainer>
-                  <span>
-                    <LowerContainerPrimaryText>Total Cost</LowerContainerPrimaryText>
-                    <LowerContainerSecondaryText>Delivery Included</LowerContainerSecondaryText>
-                  </span>
-                
-                  <TotalCostPrice>
-                    ${selectedCartItem.quantity * Number(selectedCartItem.product.price)}
-                  </TotalCostPrice>
+                <span>
+                  <LowerContainerPrimaryText>
+                    Total Cost
+                  </LowerContainerPrimaryText>
+                  <LowerContainerSecondaryText>
+                    Delivery Included
+                  </LowerContainerSecondaryText>
+                </span>
+
+                <TotalCostPrice>
+                  $
+                  {selectedCartItem.quantity
+                    * Number(selectedCartItem.product.price)}
+                </TotalCostPrice>
               </CostContainer>
             </DisplayFlex>
           </WrapperCardContainer>
 
-          <PaymentMethodSelect/>
+          <PaymentMethodSelect />
 
-          
           <ContinueButtonContainer>
             <Button
-              title='Continue'
+              title="Continue"
               onClick={() => handleClickContinue()}
               type="button"
             />
           </ContinueButtonContainer>
         </WrapperCard>
-        
-      
       </DetailBody>
     </>
   );
-}
+};
 
 export default PaymentOptions;

@@ -25,7 +25,7 @@ export const Option = styled.button<OptionProps>`
   align-items: center;
   font-size: 1.4rem;
 
-  ${props => props.isSelected && css`
+  ${(props) => props.isSelected && css`
     border: solid 1px #63B55C;
   `}
 
@@ -46,7 +46,6 @@ export const Badge = styled.div`
   color: #9E7D27;
 `;
 
-
 export const OptionLeft = styled.div`
   display: flex;
   flex-direction: column;
@@ -63,6 +62,3 @@ export const OptionLeft = styled.div`
 
 export const OptionTitle = styled.div`
 `;
-
-
-

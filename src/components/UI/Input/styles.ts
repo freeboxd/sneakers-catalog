@@ -20,22 +20,19 @@ export const Container = styled.div<ContainerProps>`
     position: absolute;
   }
 
-  ${props =>
-    props.isErrored &&
-    css`
+  ${(props) => props.isErrored
+    && css`
       border-color: #c53030;
     `}
 
-  ${props =>
-    props.isFocused &&
-    css`
+  ${(props) => props.isFocused
+    && css`
       color: ${props.theme.color.primary};
       border-color: ${props.theme.color.primary};
     `}
 
-  ${props =>
-    props.isFilled &&
-    css`
+  ${(props) => props.isFilled
+    && css`
       color: ${props.theme.color.primary};
     `}
 `;
@@ -47,7 +44,7 @@ export const InputElement = styled.input`
   flex: 1;
   background: transparent;
   border: 0;
-  color: ${props => props.theme.color.primaryText};
+  color: ${(props) => props.theme.color.primaryText};
   text-align: center;
   outline: 0;
 

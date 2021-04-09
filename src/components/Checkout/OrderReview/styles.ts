@@ -47,7 +47,6 @@ export const WrapperCardHeader = styled.h3`
   }
 `;
 
-
 export const WrapperCardSubHeader = styled.h3`
   /* font-size: 2rem; */
   font-weight: normal;
@@ -140,7 +139,6 @@ export const WrapperCardBody = styled.div`
   }
 `;
 
-
 export const CardWrapper = styled.div`
   width: 100%;
 
@@ -157,7 +155,7 @@ export const CardBlock = styled.div<CardBlockProps>`
   background-color: #F7F7F7;
   padding: 1.8rem 2rem;
   
-  ${props => css`
+  ${(props) => css`
     margin: ${props.margin};
     border-bottom-right-radius: ${props.borderBottomRadius};
     border-bottom-left-radius: ${props.borderBottomRadius};
@@ -182,7 +180,7 @@ export const CardBlock = styled.div<CardBlockProps>`
   }
 
   @media all and (max-width: 769px) {
-    ${props => css`
+    ${(props) => css`
       padding-top: ${props.paddingTopMobile}
     `}
   }

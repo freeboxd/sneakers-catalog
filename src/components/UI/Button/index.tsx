@@ -1,6 +1,6 @@
 import React, {
   ButtonHTMLAttributes,
- } from 'react';
+} from 'react';
 
 import Spinner from '../Spinner';
 
@@ -18,18 +18,15 @@ const Button: React.FC<ButtonProps> = ({
   title,
   isLoading,
   ...rest
-}: ButtonProps) => {
-
-  return (
-    <ButtonElement
-      {...rest}
-    >
-      <IconContainer>
-        {isLoading && <Spinner/>}
-      </IconContainer>
-      {title}
-    </ButtonElement>
-  );
-};
+}: ButtonProps) => (
+  <ButtonElement
+    {...rest}
+  >
+    <IconContainer>
+      {isLoading && <Spinner />}
+    </IconContainer>
+    {title}
+  </ButtonElement>
+);
 
 export default Button;

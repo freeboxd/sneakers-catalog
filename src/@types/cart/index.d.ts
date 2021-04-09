@@ -1,4 +1,4 @@
-import { IPaymentMethod } from "../payment";
+import { IPaymentMethod } from '../payment';
 
 export interface IProduct {
   id: string;

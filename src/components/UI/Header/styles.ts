@@ -7,7 +7,7 @@ export const Title = styled.h2`
 `;
 
 export const HeaderElement = styled.header`
-  background: ${props => props.theme.color.secondary};
+  background: ${(props) => props.theme.color.secondary};
   height: 7rem;
   display: flex;
   justify-content: center;

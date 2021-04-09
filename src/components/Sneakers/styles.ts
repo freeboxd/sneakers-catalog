@@ -19,6 +19,6 @@ export const NotFoundMessage = styled.h3`
   margin-top: 3rem;
   font-size: 2rem;
   text-align: center;
-  color: ${props => props.theme.color.primary};
+  color: ${(props) => props.theme.color.primary};
   font-weight: 600;
 `;
