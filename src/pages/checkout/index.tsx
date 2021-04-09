@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
 import Head from 'next/head';
-import StepBar, { Step } from '../../components/UI/StepBar';
 import useCart from '../../hooks/cart';
 import { ICartContext, ICartItem } from '../../@types/cart/Cart';
 import PaymentOptions from '../../components/Checkout/PaymentOptions';
 import OrderReview from '../../components/Checkout/OrderReview';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
+import CheckoutComponent from '../../components/Checkout';
 
-import {
-  MainContainer,
-  PageTitle,
-} from './styles';
 import { useCallback } from 'react';
+import { Step } from '../../components/UI/StepBar';
 
 const Checkout: React.FC = () => {
   const { cart, selectedPaymentMethod }: ICartContext =  useCart();
@@ -34,18 +31,21 @@ const Checkout: React.FC = () => {
       title: 'Cart',
       pageTitle: '',
       component: null,
+      position: 1,
     },
     {
       id: 'payment-options',
       title: 'Payment Options',
       pageTitle: 'Checkout',
       component: PaymentOptions,
+      position: 2,
     },
     {
       id: 'receipt',
       title: 'Receipt',
       pageTitle: 'Review and confirmation',
       component: OrderReview,
+      position: 3,
     }
   ];
 
@@ -57,7 +57,7 @@ const Checkout: React.FC = () => {
   // Goes to the next step of the checkout if possible
   const nextStep = () => {
     if (currentStepId < checkoutSteps.length + 1) {
-      setCurrentStepId(currentStepId + 1);
+      setCurrentStepId(checkoutSteps.findIndex((step) => step.position === currentStepId + 1));
     }
   }
 
@@ -72,14 +72,10 @@ const Checkout: React.FC = () => {
         ? (<></>) : (
         <>
           <main>
-            <MainContainer>
-
-              <StepBar
-                currentStep={currentStepId + 1}
-                steps={checkoutSteps}
-              />
-              <PageTitle>{currentStep.pageTitle}</PageTitle>
-
+            <CheckoutComponent
+              currentStep={currentStep}
+              checkoutSteps={checkoutSteps}
+            >
               {
                 // Dynamically renders the step components
                 React.createElement(currentStep.component, {
@@ -87,8 +83,7 @@ const Checkout: React.FC = () => {
                   nextStep,
                 } as any)
               }
-
-            </MainContainer>
+            </CheckoutComponent>
           </main>
         </>
       )}

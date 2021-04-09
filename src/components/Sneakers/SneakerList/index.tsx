@@ -1,7 +1,7 @@
 import React from 'react';
-import SneakerListItem from '../SneakerListItem';
+import SneakerListItem from './SneakerListItem';
 
-import { ISneaker } from '../../@types/cart/Cart';
+import { ISneaker } from '../../../@types/cart/Cart';
 
 import {
   ProductList,

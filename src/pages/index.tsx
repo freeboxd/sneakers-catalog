@@ -1,15 +1,8 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import Head from 'next/head';
-import Input from '../components/UI/Input';
-import { Search } from '@styled-icons/bootstrap/Search';
-import SneakerList from '../components/SneakerList';
 import { InferGetStaticPropsType } from 'next';
 import { ISneaker } from '../@types/cart/Cart';
-
-import {
-  MainContainer,
-  NotFoundMessage,
-} from './styles';
+import Sneakers from '../components/Sneakers';
 
 export const getStaticProps = async () => {
   const res = await fetch('http://localhost:3000/api/sneakers')
@@ -23,7 +16,7 @@ export const getStaticProps = async () => {
 }
 
 export default function Home({ sneakerList }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const [searchValue, setSearchValue] = useState<String>('');
+  const [searchValue, setSearchValue] = useState<string>('');
 
   const [sneakerListClone, setSneakerListClone] = useState<ISneaker[]>([]);
 
@@ -51,27 +44,11 @@ export default function Home({ sneakerList }: InferGetStaticPropsType<typeof get
       </Head>
 
       <main>
-        <MainContainer>
-
-          <Input
-            name="Search"
-            icon={Search}
-            placeholder="Search for your sneaker"
-            onChange={e => setSearchValue(e.target.value)}
-          />
-
-          <SneakerList
-            sneakerList={sneakerListClone}
-          >
-            <NotFoundMessage>
-              {
-                searchValue !== '' ? <>There are no sneakers that match {searchValue}.</>
-                : <>There are no sneakers to show.</>
-              }
-            </NotFoundMessage>
-          </SneakerList>
-
-        </MainContainer>
+        <Sneakers
+          sneakerList={sneakerList}
+          searchValue={searchValue}
+          onChangeSearchValue={(searchValue) => handleSearchChange(searchValue)}
+        />
       </main>
     </>
   )

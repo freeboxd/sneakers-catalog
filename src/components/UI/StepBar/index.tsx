@@ -12,6 +12,7 @@ export interface Step {
   title: string,
   pageTitle: string,
   component: React.FC,
+  position: number,
 }
 
 interface StepBarProps {

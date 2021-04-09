@@ -1,11 +1,10 @@
 import React, { useCallback } from 'react';
-import CardWithImage from '../UI/CardWithImage';
-import Select from '../UI/Select';
+import CardWithImage from '../../../UI/CardWithImage';
+import Select from '../../../UI/Select';
 import { useFormik } from 'formik';
-import Button from '../UI/Button';
+import Button from '../../../UI/Button';
 import { useRouter } from 'next/router';
-
-import { ICartContext, ISneaker } from '../../@types/cart/Cart';
+import { ICartContext, ISneaker } from '../../../../@types/cart/Cart';
 
 import {
   SneakerOptionsContainer,
@@ -13,7 +12,7 @@ import {
   Form,
   SelectContainer,
 } from './styles';
-import useCart from '../../hooks/cart';
+import useCart from '../../../../hooks/cart';
 
 interface SneakerListItemProps {
   sneaker: ISneaker
