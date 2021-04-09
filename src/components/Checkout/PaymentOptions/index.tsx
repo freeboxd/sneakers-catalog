@@ -51,7 +51,7 @@ const PaymentOptions: React.FC<PaymentOptionsProps> = ({
 
   const { PayWithMyBankEstablish } = usePayWithMyBank(
     handlePayWithMyBankEstablishSuccess,
-    handlePayWithMyBankEstablishFailure,
+    handlePayWithMyBankEstablishFailure
   );
   const { selectedPaymentMethod, cart } = useCart();
 
@@ -84,32 +84,23 @@ const PaymentOptions: React.FC<PaymentOptionsProps> = ({
                 </WrapperCardHeader>
 
                 <CartItemInfo>
-                  x
-                  {' '}
-                  {selectedCartItem.quantity}
+                  x {selectedCartItem.quantity}
                   {
                     // Displays size, if exists
-                    selectedCartItem.extraInfo
-                      && selectedCartItem.extraInfo.size && (
-                        <>
-                          , Size
-                          {selectedCartItem.extraInfo.size}
-                        </>
-                    )
+                    selectedCartItem.extraInfo &&
+                      selectedCartItem.extraInfo.size && (
+                        <>, Size {selectedCartItem.extraInfo.size}</>
+                      )
                   }
                   {
                     // Displays color, if exists
-                    selectedCartItem.extraInfo
-                      && (selectedCartItem.product as ISneaker).color && (
-                        <>
-                          ,
-                          {(selectedCartItem.product as ISneaker).color}
-                        </>
-                    )
+                    selectedCartItem.extraInfo &&
+                      (selectedCartItem.product as ISneaker).color && (
+                        <>, {(selectedCartItem.product as ISneaker).color}</>
+                      )
                   }
                   <br />
-                  Item #
-                  {selectedCartItem.product.id}
+                  Item #{selectedCartItem.product.id}
                 </CartItemInfo>
               </InfoContainer>
 
@@ -142,8 +133,8 @@ const PaymentOptions: React.FC<PaymentOptionsProps> = ({
 
                 <TotalCostPrice>
                   $
-                  {selectedCartItem.quantity
-                    * Number(selectedCartItem.product.price)}
+                  {selectedCartItem.quantity *
+                    Number(selectedCartItem.product.price)}
                 </TotalCostPrice>
               </CostContainer>
             </DisplayFlex>
