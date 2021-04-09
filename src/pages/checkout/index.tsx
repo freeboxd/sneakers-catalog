@@ -13,7 +13,7 @@ import { useCallback } from 'react';
 import { Step } from '../../components/UI/StepBar';
 
 const Checkout: React.FC = () => {
-  const { cart, selectedPaymentMethod }: ICartContext =  useCart();
+  const { cart, clearCart }: ICartContext =  useCart();
   const [currentStepId, setCurrentStepId] = useState(1);
   const [selectedCartItem, setSelectedCartItem] = useState({} as ICartItem);
   const router = useRouter();
@@ -68,6 +68,7 @@ const Checkout: React.FC = () => {
     if (currentStepId > 0 && previousStep.component !== null) {
       setCurrentStepId(currentStepId - 1);
     } else {
+      clearCart();
       router.back();
     }
   }

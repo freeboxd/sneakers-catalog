@@ -43,7 +43,7 @@ export const CartProvider: React.FC = ({ children }) => {
   };
 
   // Clears cart items
-  const clear = () => {
+  const clearCart = () => {
     setCart([]);
   };
 
@@ -54,7 +54,7 @@ export const CartProvider: React.FC = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ addItem, removeItem, cart, clear, changeSelectedPaymentMethod, selectedPaymentMethod }}
+      value={{ addItem, removeItem, cart, clearCart, changeSelectedPaymentMethod, selectedPaymentMethod }}
     >
       {children}
     </CartContext.Provider>

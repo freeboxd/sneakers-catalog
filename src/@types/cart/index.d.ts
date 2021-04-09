@@ -16,7 +16,7 @@ export interface ISneaker extends IProduct {
 export interface ICartContext {
   addItem(cartItem: IAddItemArgs): number;
   removeItem(cartItemId: number): ICartItem;
-  clear(): void;
+  clearCart(): void;
   changeSelectedPaymentMethod(payment: IPaymentMethod): void;
   selectedPaymentMethod: IPaymentMethod;
   cart: ICartItem[];
