@@ -2,10 +2,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-<img src="images/trustly-logo.png" alt="Logo" width="80" height="80">
-
+<img src="images/trustly-logo.png" alt="Trustly Logo" width="160" height="160">
   <h3 align="center">Trustly Frontend Challenge</h3>
-
   <p align="center">
     Sneaker e-commerce application developed for Trustly.</a>
     <br />
