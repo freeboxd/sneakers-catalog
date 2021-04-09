@@ -15,11 +15,11 @@ import {
 } from './styles';
 import useCart from '../../hooks/cart';
 
-interface SneakerListItem {
+interface SneakerListItemProps {
   sneaker: ISneaker
 }
 
-const SneakerListItem: React.FC<SneakerListItem> = ({sneaker}: SneakerListItem) => {
+const SneakerListItem: React.FC<SneakerListItemProps> = ({sneaker}: SneakerListItemProps) => {
 
   const router = useRouter();
 
