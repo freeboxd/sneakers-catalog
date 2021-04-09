@@ -60,8 +60,10 @@ export default function Home() {
       <Head>
         <title>Catalog - Trustly Frontend Challenge</title>
       </Head>
+
       <main>
         <MainContainer>
+
           <Input
             name="Search"
             icon={Search}
@@ -70,14 +72,19 @@ export default function Home() {
           />
 
           <ProductList>
+
               {sneakersList.length > 0 ? (
                 <ProductListContainer>
+
                   {sneakersList.map((sneaker: ISneaker) => (
+                  
                     <SneakerListItem
                       sneaker={sneaker}
                       key={sneaker.id}
                     />
+                  
                   ))}
+
                 </ProductListContainer>
                 ) : (
                   <NotFoundMessage>
@@ -85,7 +92,9 @@ export default function Home() {
                   </NotFoundMessage>
                 )
               }
+
           </ProductList>
+
         </MainContainer>
       </main>
     </>
