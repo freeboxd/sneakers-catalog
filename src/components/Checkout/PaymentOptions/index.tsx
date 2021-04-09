@@ -102,7 +102,7 @@ const PaymentOptions: React.FC<PaymentOptionsProps> = ({
                   }
 
                   <br/>
-                  Item #{selectedCartItem.id}
+                  Item #{selectedCartItem.product.id}
                 </CartItemInfo>
               </InfoContainer>
 
