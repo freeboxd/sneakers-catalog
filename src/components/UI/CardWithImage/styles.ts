@@ -10,7 +10,7 @@ export const CardImgContainer = styled.div`
   overflow: hidden;
 `;
 
-export const CardImg = styled.img`
+export const CardImg = styled.img<any>`
   width: 100%;
 `;
 

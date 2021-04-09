@@ -14,13 +14,14 @@ import {
 export interface CardWithImageProps {
   imgSrc: String,
   title: String,
+  children: React.ReactNode,
 }
 
 const CardWithImage: React.FC<CardWithImageProps> = ({
   imgSrc,
   title,
   children,
-}) => {
+}: CardWithImageProps) => {
   return(
     <Card>
       <Container>
