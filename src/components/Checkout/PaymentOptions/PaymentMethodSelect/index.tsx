@@ -1,11 +1,12 @@
 import React, { useCallback } from 'react';
 import { useEffect } from 'react';
-import { IPaymentMethod } from '../../../../@types/payment/Payment';
+import { IPaymentMethod } from '../../../../@types/payment';
 import useCart from '../../../../hooks/cart';
 import AlternativeSelect, {IAlternativeSelectOption} from '../../../UI/AlternativeSelect';
 import {BuildingBank} from '@styled-icons/fluentui-system-filled/BuildingBank';
 import {CreditCard} from '@styled-icons/bootstrap/CreditCard';
 import {CcApplePay} from '@styled-icons/fa-brands/CcApplePay';
+
 import {
   Container,
   HeaderTitle,
