@@ -142,8 +142,10 @@ export const WrapperCardBody = styled.div`
 
 
 export const CardWrapper = styled.div`
-  width: 57%;
+  width: 100%;
+
   @media all and (min-width: 769px) {
+    width: 57%;
     padding: 6rem 5rem;
     border-radius: 9px;
     background-color: #F7F7F7;
