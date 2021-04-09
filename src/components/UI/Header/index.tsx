@@ -6,26 +6,26 @@ import {
   HeaderElement,
   Container,
   Title,
-  BackButton
+  BackButton,
+  BackButtonContainer,
 } from './styles';
-
 interface HeaderProps {
   title: string;
   previous?: any;
 }
 
-const Header: React.FC<HeaderProps> = ({ title, previous}: HeaderProps) => {
+const Header: React.FC<HeaderProps> = ({ title, previous }: HeaderProps) => {
   return (
     <HeaderElement id="main-header">
       <Container>
-        <div>
+        <BackButtonContainer>
           {previous && (
             <BackButton>
               <ArrowLeftShort />
               Back
             </BackButton>
           )}
-        </div>
+        </BackButtonContainer>
         <Title>{title}</Title>
         <div>
           <Image
