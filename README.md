@@ -7,7 +7,7 @@
   <p align="center">
     Sneaker e-commerce application developed for Trustly.</a>
     <br />
-    <a href="https://trustly-frontend-challenge-6o25fa3ba-freeboxd.vercel.app/">View Demo</a>
+    <a href="https://trustly-frontend-challenge.vercel.app/">View Demo</a>
   </p>
 </p>
 
