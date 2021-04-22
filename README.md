@@ -2,7 +2,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <h3 align="center">Sneakers catalog</h3>
+  <h3 align="center">Sneakers Catalog</h3>
   <p align="center">
     Sneakers e-commerce application.</a>
     <br />
@@ -65,7 +65,7 @@ To run this project, you will need Node.js and Yarn installed. Node v12.13.0 is 
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/freeboxd/trustly-frontend-challenge.git
+   git clone https://github.com/freeboxd/sneakers-catalog.git
    ```
 3. Install NPM packages
    ```sh
