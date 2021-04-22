@@ -2,10 +2,9 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-<img src="images/trustly-logo.png" alt="Trustly Logo" width="160" height="160">
-  <h3 align="center">Trustly Frontend Challenge</h3>
+  <h3 align="center">Sneakers catalog</h3>
   <p align="center">
-    Sneaker e-commerce application developed for Trustly.</a>
+    Sneakers e-commerce application.</a>
     <br />
     <a href="https://trustly-frontend-challenge.vercel.app/">View Demo</a>
   </p>
@@ -42,7 +41,7 @@
 
 ![Trustly App Name Screen Shot][product-screenshot]
 
-This project was developed as a challenge proposed by Trustly and it should test my skills as a Frontend Developer.
+This project was developed as a job challenge for testing my skills.
 
 ### Built With
 
@@ -51,7 +50,7 @@ This project was developed as a challenge proposed by Trustly and it should test
 * [Styled Components](https://styled-components.com/)
 * [Typescript](https://www.typescriptlang.org/)
 * [Eslint](https://eslint.org/)
-* [Eslint](https://prettier.io/)
+* [Prettier](https://prettier.io/)
 
 
 
